@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "monty.h"
 
 int stack_queue = 0;
@@ -33,7 +30,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	while (getline(&str_line, &size, filetoread) != -1)
+	while (fgets(str_line, size, filetoread) != NULL)
 	{
 		line_number++;
 		token = strtok(str_line, " \t\n");
