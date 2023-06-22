@@ -3,7 +3,6 @@
 
 /**
  * is_digit - checks if a string is a digit
- * @string: string to check
  *
  * Return: 1 if success, 0 if not
  */
