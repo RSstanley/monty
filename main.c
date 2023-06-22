@@ -23,7 +23,7 @@ int main(int ac, char **av)
 	char *line = NULL, *tok = NULL;
 	size_t len = 0;
 	unsigned int ln = 1;
-	ssize_t read;
+	ssize_t read_result;
 	stack_t *stack = NULL;
 
 	global.data_struct = 1;
@@ -36,7 +36,7 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	while ((read = getline(&line, &len, fp)) != -1)
+	while ((read_result = getline(&line, &len, fp)) != -1)
 	{
 		if (*line == '\n')
 		{
