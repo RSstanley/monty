@@ -2,8 +2,6 @@
 
 /**
   * rotl - rotates stack to the top
-  * @stack: head of stack
-  * @ln: line number, unused
   * Description: top element becomes last one,
   * second element becomes first, rotl never fails
   */
