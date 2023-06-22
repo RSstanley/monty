@@ -2,9 +2,6 @@
 
 /**
  * opcode - runs opcode from monty file
- * @stack: doubly linked list to store data
- * @str: string to compare with opcodes
- * @ln: line number
  */
 void opcode(stack_t **stack, char *str, unsigned int ln)
 {
