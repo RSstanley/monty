@@ -3,11 +3,8 @@
 
 /**
   * pchar - prints the char at the top of the stack
-  * @stack: head of stack
-  * @ln: line number
   * Description: prints ascii value of element at
   * top of the stack, error if stack is empty or
-  * element not in ascii table
   */
 void pchar(stack_t **stack, unsigned int ln)
 {
