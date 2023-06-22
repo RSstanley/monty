@@ -2,7 +2,6 @@
 
 /**
   * usage_error - prints error message
-  * Description: prints message when wrong use
   * of program, exit failure
   */
 void usage_error(void)
