@@ -2,8 +2,6 @@
 
 /**
  * push - push element into the stack
- * @stack: doubly linked list to store data
- * @ln: line number
  */
 void push(stack_t **stack, unsigned int ln)
 {
