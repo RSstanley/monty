@@ -2,8 +2,6 @@
 
 /**
   * _div - divides second top by top element of stack
-  * @stack: head of stack
-  * @ln: line number
   * Description: divides and removes top node,
   * prints error if stack is shorter than two nodes
   */
