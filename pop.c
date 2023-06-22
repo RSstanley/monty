@@ -1,32 +1,25 @@
 #include "monty.h"
 
 /**
- * pop - removes the top element of the stack.
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction..
- **/
-
-void pop(stack_t **stack, unsigned int line_number)
+  * pop - removes top element of stack
+  * @stack: head of stack
+  * @ln: line number
+  * Description: if stack is empty, print error and
+  * exit failure
+  */
+void pop(stack_t **stack, unsigned int ln)
 {
-	stack_t *node = *stack;
+	stack_t *tmp;
 
-	if (*stack != NULL)
+	if (!stack || !(*stack))
 	{
-		if (node->next != NULL)
-		{
-			*stack = (*stack)->next;
-			(*stack)->prev = NULL;
-			free(node);
-		}
-		else
-		{
-			*stack = NULL;
-			free(node);
-		}
-	}
-	else
-	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
+	tmp = *stack;
+	*stack = tmp->next;
+	if (*stack)
+	(*stack)->prev = NULL;
+	free(tmp);
 }

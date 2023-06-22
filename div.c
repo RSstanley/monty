@@ -1,30 +1,27 @@
 #include "monty.h"
 
 /**
- * _div - divides the second top element of the stack by the top element.
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction..
- **/
-
-void _div(stack_t **stack, unsigned int line_number)
+  * _div - divides second top by top element of stack
+  * @stack: head of stack
+  * @ln: line number
+  * Description: divides and removes top node,
+  * prints error if stack is shorter than two nodes
+  */
+void _div(stack_t **stack, unsigned int ln)
 {
-	stack_t *node = *stack, *next_node;
+	int a;
 
-	if (*stack != NULL && (*stack)->next != NULL)
+	if (!stack || !(*stack) || (*stack)->next == NULL)
 	{
-		if (node->n == 0)
-		{
-			fprintf(stderr, "L%d: division by zero\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-		next_node = (*stack)->next;
-		next_node->n /= node->n;
-		pop(stack, line_number);
-		*stack = next_node;
-	}
-	else
-	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", ln);
+		exit(EXIT_FAILURE);
+	}
+	a = ((*stack)->next->n) / ((*stack)->n);
+	pop(stack, ln);
+	(*stack)->n = a;
 }

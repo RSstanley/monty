@@ -1,29 +1,23 @@
+#include <ctype.h>
 #include "monty.h"
 
 /**
- *_isdigit - check if a string only contain digits (0 through 9)
- * Return: 1 if str contain only digits 0 otherwise.
- * @num: string to be checked
- **/
-
-int _isdigit(char *num)
+ * is_digit - checks if a string is a digit
+ * @string: string to check
+ *
+ * Return: 1 if success, 0 if not
+ */
+int is_digit(char *string)
 {
-	unsigned int i = 0;
-
-	while (num[i] != '\0')
+	if (!string || *string == '\0')
+		return (0);
+	if (*string == '-')
+		string++;
+	while (*string)
 	{
-		if (num[i] == '-')
-		{
-			i++;
-		}
-		if (num[i] >= '0' && num[i] <= '9')
-		{
-			i++;
-		}
-		else
-		{
+		if (isdigit(*string) == 0)
 			return (0);
-		}
+		string++;
 	}
 	return (1);
 }

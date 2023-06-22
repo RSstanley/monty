@@ -1,22 +1,16 @@
 #include "monty.h"
 
 /**
- * pint - print the value at the top of the stack.
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction..
- **/
-
-void pint(stack_t **stack, unsigned int line_number)
+  * pint - prints value at top of the stack
+  * @stack: doubly linked list
+  * @ln: line number
+  */
+void pint(stack_t **stack, unsigned int ln)
 {
-	stack_t *node = *stack;
-
-	if (*stack != NULL)
+	if (!stack || !(*stack))
 	{
-		printf("%d\n", node->n);
-	}
-	else
-	{
-		fprintf(stderr, "L%x: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", ln);
 		exit(EXIT_FAILURE);
 	}
+	printf("%d\n", (*stack)->n);
 }

@@ -1,30 +1,26 @@
 #include "monty.h"
+#include <ctype.h>
 
 /**
- * pstr - prints the string starting at the top of the stack,
- * followed by a new line.
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction.
- **/
-
-void pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
+  * pstr - prints the string starting at top of the stack
+  * @stack: head of stack
+  * @ln: line number, unused
+  * Description: int stored in each element of stack is
+  * treated as a character, stops printing when stack
+  * is over, element is 0 or not in ascii table
+  */
+void pstr(stack_t **stack, unsigned int ln __attribute__((unused)))
 {
-	stack_t *node = *stack;
+	stack_t *tmp = *stack;
 
-	if (*stack != NULL)
+	while (tmp)
 	{
-		while (node != NULL)
+		if ((isascii(tmp->n) == 0) || (tmp->n <= 0))
 		{
-			if (node->n >= 1 && node->n <= 127)
-			{
-				printf("%c", node->n);
-			}
-			else
-			{
-				break;
-			}
-			node = node->next;
+			break;
 		}
+		putchar(tmp->n);
+		tmp = tmp->next;
 	}
-	printf("\n");
+	putchar('\n');
 }

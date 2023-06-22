@@ -1,31 +1,28 @@
 #include "monty.h"
 
 /**
- * mod - omputes the rest of the division of the second top element
- * of the stack by the top
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction..
- **/
-
-void mod(stack_t **stack, unsigned int line_number)
+  * mod - computes the rest of the div of 2nd top element
+  * of the stack by top element of stack
+  * @stack: head of stack
+  * @ln: line number
+  * Description: computes and removes top node,
+  * prints error if stack is shorter than two nodes
+  */
+void mod(stack_t **stack, unsigned int ln)
 {
-	stack_t *node = *stack, *next_node;
+	int a;
 
-	if (*stack != NULL && (*stack)->next != NULL)
+	if (!stack || !(*stack) || (*stack)->next == NULL)
 	{
-		if (node->n == 0)
-		{
-			fprintf(stderr, "L%d: division by zero\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-		next_node = (*stack)->next;
-		next_node->n %= node->n;
-		pop(stack, line_number);
-		*stack = next_node;
-	}
-	else
-	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", ln);
+		exit(EXIT_FAILURE);
+	}
+	a = ((*stack)->next->n) % ((*stack)->n);
+	pop(stack, ln);
+	(*stack)->n = a;
 }

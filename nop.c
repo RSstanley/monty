@@ -1,13 +1,12 @@
 #include "monty.h"
 
 /**
- * nop - doesn’t do anything.
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction..
- **/
-
-void nop(stack_t **stack, unsigned int line_number)
+  * nop - does nothing
+  * @stack: head of stack
+  * @ln: line count
+  */
+void nop(stack_t **stack, unsigned int ln)
 {
-	(void)stack;
-	(void)line_number;
+	stack = stack;
+	ln = ln;
 }

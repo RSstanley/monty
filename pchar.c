@@ -1,28 +1,25 @@
 #include "monty.h"
+#include <ctype.h>
 
 /**
- * pchar - prints the char at the top of the stack, followed by a new line.
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction.
- **/
-
-void pchar(stack_t **stack, unsigned int line_number)
+  * pchar - prints the char at the top of the stack
+  * @stack: head of stack
+  * @ln: line number
+  * Description: prints ascii value of element at
+  * top of the stack, error if stack is empty or
+  * element not in ascii table
+  */
+void pchar(stack_t **stack, unsigned int ln)
 {
-	if (*stack != NULL)
+	if (!stack || !(*stack))
 	{
-		if ((*stack)->n >= 0 && (*stack)->n <= 127)
-		{
-			printf("%c\n", (*stack)->n);
-		}
-		else
-		{
-			fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-	}
-	else
-	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", ln);
 		exit(EXIT_FAILURE);
 	}
+	if (isascii((*stack)->n) == 0)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", ln);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", (*stack)->n);
 }

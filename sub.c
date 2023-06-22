@@ -1,25 +1,22 @@
 #include "monty.h"
 
 /**
- * sub - subtracts the top element of the stack from the second top element.
- * @stack: doubly linked list
- * @line_number: number of line wich contain the instruction..
- **/
-
-void sub(stack_t **stack, unsigned int line_number)
+  * sub - substracts top from 2nd top element of stack
+  * @stack: head of stack
+  * @ln: line number
+  * Description: adds up last two and removes top node,
+  * prints error if stack is shorter than two nodes
+  */
+void sub(stack_t **stack, unsigned int ln)
 {
-	stack_t *node = *stack, *next_node;
+	int a;
 
-	if (*stack != NULL && (*stack)->next != NULL)
+	if (!stack || !(*stack) || (*stack)->next == NULL)
 	{
-		next_node = (*stack)->next;
-		next_node->n -= node->n;
-		pop(stack, line_number);
-		*stack = next_node;
-	}
-	else
-	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
+	a = (*stack)->next->n - (*stack)->n;
+	pop(stack, ln);
+	(*stack)->n = a;
 }
