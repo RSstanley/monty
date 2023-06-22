@@ -2,8 +2,6 @@
 
 /**
   * add - adds top two values of the stack
-  * @stack: head of stack
-  * @ln: line number
   * Description: adds up last two and removes top node,
   * prints error if stack is shorter than two nodes
   */
