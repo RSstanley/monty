@@ -2,9 +2,6 @@
 
 /**
   * rotr - rotates the stack to the bottom
-  * @stack: head of stack
-  * @ln: line number, unused
-  * Description: the last element of the stack becomes
   * the first one, second last becomes last, never fails
   */
 void rotr(stack_t **stack, unsigned int ln __attribute__((unused)))
