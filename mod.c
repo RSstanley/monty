@@ -3,9 +3,6 @@
 /**
   * mod - computes the rest of the div of 2nd top element
   * of the stack by top element of stack
-  * @stack: head of stack
-  * @ln: line number
-  * Description: computes and removes top node,
   * prints error if stack is shorter than two nodes
   */
 void mod(stack_t **stack, unsigned int ln)
