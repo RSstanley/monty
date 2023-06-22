@@ -2,9 +2,6 @@
 
 /**
   * swap - swaps the top two elements of stack
-  * @stack: head of stack
-  * @ln: line number
-  * Description: if stack contains less than two
   * elements, print error and exit failure
   */
 void swap(stack_t **stack, unsigned int ln)
